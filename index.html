@@ -17,14 +17,43 @@
         </div>
 
         <div id="sign-up">
-            <h2>Join EverBloom – Cultivate Your Passion for Nature</h2>
+            <h2 class="title">Join EverBloom – Cultivate Your Passion for Nature</h2>
             <div class="form">
-                <form action="#" method="get">
-
-                    <input type="text" id="username">
-
+                <form id="sign-up-form" action="#" method="get">
+                    <legend>Your journey with nature starts here</legend>
+                    <div class="form-body">
+                        <div>
+                            <label for="firstname">FIRST NAME</label>
+                            <input type="text" id="firstname" required>
+                        </div>
+                        <div>
+                            <label for="lastname">LAST NAME</label>
+                            <input type="text" id="lastname" required>
+                        </div>
+                        <div>
+                            <label for="email">E-MAIL</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div>
+                            <label for="phone">PHONE NUMBER</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div>
+                            <label for="password">PASSWORD</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <div>
+                            <label for="password">CONFIRM PASSWORD</label>
+                            <input type="password" id="password" required>
+                        </div>
+                    </div>
                 </form>
             </div>
+            <div class="form-footer">
+                <button type="submit" form="sign-up-form">Join EverBloom</button>
+                <p class="joined">Already Joined? <a href="#">Log in</a></p>
+            </div>
+
         </div>
     </div>
 

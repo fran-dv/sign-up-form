@@ -1,10 +1,17 @@
 @font-face {
     font-family: 'dinasty_personal_usebold';
-    src: url('./fonts/dinastypersonalusebold-rgqza-webfont.woff2') format('woff2'),
-         url('./fonts/dinastypersonalusebold-rgqza-webfont.woff') format('woff');
+    src: url('./fonts/dinasty/dinastypersonalusebold-rgqza-webfont.woff2') format('woff2'),
+         url('./fonts/dinasty/dinastypersonalusebold-rgqza-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'arima_koshilight';
+    src: url('./fonts/arima/arimakoshi-light-webfont.woff2') format('woff2'),
+         url('./fonts/arima/arimakoshi-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
@@ -17,6 +24,11 @@
 :root {
     --banner-image: url(./images/banner2.jpg);
     --font-color: white;
+    --input-max-width: 400px;
+    --form-body-gap: 2.5em;
+    --input-margin-left: 0rem;
+    --input-margin-right: 4em;
+    --sign-up-ml: 3.5rem;
 }
 
 h1 {
@@ -27,11 +39,34 @@ h1 {
     color: var(--font-color);
 }
 
-h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+h2,
+form > legend {
+    font-family: 'arima_koshilight', sans-serif;
     font-size: 2rem;
     text-align: left;
-    margin-left: 3em;
+    font-weight: 500;
+    letter-spacing: .1rem;
+}
+
+.title {
+    margin-left: var(--sign-up-ml);
+}
+
+form {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    letter-spacing: .3rem;
+    font-weight: bold;
+}
+
+form > legend {
+    margin-bottom: 1.5em;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    padding: .3rem;
 }
 
 .container {
@@ -81,11 +116,95 @@ h2 {
     flex-direction: column;
     flex: 1;
     height: 100vh;
+    max-height: 100vh;
     min-width: 50rem;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
+    background-color: whitesmoke;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: white;
+    padding: 3.5rem;
+    box-shadow: 0px 7px 15px rgba(0,0,0,0.6);
+}
+
+.form-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--form-body-gap);
+    max-width: calc((var(--input-max-width))* 2 + var(--form-body-gap));
+}
+
+.form-body > div {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--input-max-width);
+    gap: .3rem;
+}
+
+label {
+    margin-left: 5px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel'] {
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    height: 2.5rem;
+    min-width: none;
+    width: var(--input-max-width);
+    max-width: var(--input-max-width);
+}
+
+.form-footer {
+    font-family: 'amatic_scregular', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--sign-up-ml);
+    gap: 1em;
+}
+
+button {
+    width: 300px;
+    height: auto;
+    padding: 18px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #A4020D;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    
 }
 
 
+.joined {
+    font-family: Cantarell, sans-serif;
+    margin-left: 8px;
+    font-size: 20px;
+}
 
+.joined > a {
+    text-decoration: none;
+    color: #A4020D;
+    font-weight: bold;
+}
 
+input[type='password']:invalid {
+    border-color: #ba3127;
+}
+
+form input:focus {
+    border-color: #A3E5FB;
+    box-shadow: 0px 4px 6px rgb(0, 0, 0, 0.5);
+    outline: none;
+}
